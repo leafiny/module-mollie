@@ -100,6 +100,7 @@ class Mollie_Model_Payment_Online_Mollie extends Payment_Model_Payment
             $state = $this->getPaymentState($payment);
 
             $sale->setData('payment_state', $state);
+            $saleModel->save($sale);
 
             /** @var Commerce_Model_Sale_History $historyModel */
             $historyModel = App::getSingleton('model', 'sale_history');
