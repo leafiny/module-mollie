@@ -11,7 +11,7 @@
 declare(strict_types=1);
 
 /**
- * Class Catalog_Page_Product_View
+ * Class Mollie_Page_Webhook
  */
 class Mollie_Page_Webhook extends Core_Page
 {
