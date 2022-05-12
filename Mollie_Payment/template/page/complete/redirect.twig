@@ -1,0 +1,4 @@
+<form id="payment_complete_redirect" method="post" action="{{ page.getUrl('/payment/mollie/complete/redirect/') }}">
+    <input type="hidden" name="key" value="{{ page.getCustom('key') }}" />
+    <input type="hidden" name="result" value="{{ page.getCustom('result') }}" />
+</form>

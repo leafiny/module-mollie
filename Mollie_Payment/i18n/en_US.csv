@@ -4,4 +4,7 @@
 "The total amount of your order is","The total amount of your order is"
 "The payment was not successful","The payment was not successful"
 "The transaction ended with the status:","The transaction ended with the status:"
-"Your bank account will not be debited. You can retry a payment by validating your cart again.","Your bank account will not be debited. You can retry a payment by validating your cart again."
+"The payment was declined by the payment gateway. Please try again or choose another payment method.","The payment was declined by the payment gateway. Please try again or choose another payment method."
+"The payment has been canceled. Please try again or choose another payment method.","The payment has been canceled. Please try again or choose another payment method."
+"The payment has expired. Please try again or choose another payment method.","The payment has expired. Please try again or choose another payment method."
+"Payment Complete","Payment Complete"
