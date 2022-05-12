@@ -1,3 +1,5 @@
+{% if not block.getCustom('is_mail') %}
 <p>
     {{ 'Payment by credit card is made on a banking secure platform'|translate }}
 </p>
+{% endif %}
