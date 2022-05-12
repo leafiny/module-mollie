@@ -49,7 +49,7 @@ class Mollie_Model_Payment_Online_Mollie extends Payment_Model_Payment
                     'value'    => number_format((float)$sale->getData('incl_tax_total'), 2, '.', '')
                 ],
                 'description' => App::translate($this->getDescription()),
-                'redirectUrl' => App::getBaseUrl(true) . 'checkout/order/complete/?key=' . $sale->getData('key'),
+                'redirectUrl' => App::getBaseUrl(true) . 'payment/mollie/complete/?key=' . $sale->getData('key'),
                 'webhookUrl'  => App::getBaseUrl(true) . 'payment/mollie/webhook/',
             ]
         );
@@ -185,37 +185,37 @@ class Mollie_Model_Payment_Online_Mollie extends Payment_Model_Payment
     protected function getPaymentState(\Mollie\Api\Resources\Payment $payment): string
     {
         if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
-            return 'paid';
+            return Mollie_Helper_Mollie::PAYMENT_RESULT_PAID;
         }
 
         if ($payment->isOpen()) {
-            return 'open';
+            return Mollie_Helper_Mollie::PAYMENT_RESULT_OPEN;
         }
 
         if ($payment->isPending()) {
-            return 'pending';
+            return Mollie_Helper_Mollie::PAYMENT_RESULT_PENDING;
         }
 
         if ($payment->isFailed()) {
-            return 'failed';
+            return Mollie_Helper_Mollie::PAYMENT_RESULT_FAILED;
         }
 
         if ($payment->isExpired()) {
-            return 'expired';
+            return Mollie_Helper_Mollie::PAYMENT_RESULT_EXPIRED;
         }
 
         if ($payment->isCanceled()) {
-            return 'canceled';
+            return Mollie_Helper_Mollie::PAYMENT_RESULT_CANCELED;
         }
 
         if ($payment->hasRefunds()) {
-            return 'refunds';
+            return Mollie_Helper_Mollie::PAYMENT_RESULT_REFUNDS;
         }
 
         if ($payment->hasChargebacks()) {
-            return 'chargebacks';
+            return Mollie_Helper_Mollie::PAYMENT_RESULT_CHARGEBACKS;
         }
 
-        return 'unknown';
+        return Mollie_Helper_Mollie::PAYMENT_RESULT_UNKNOWN;
     }
 }
