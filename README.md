@@ -12,6 +12,12 @@ We need **composer** to add **mollie/mollie-api-php** library. Run the following
 composer require mollie/mollie-api-php
 ```
 
+Deploy the resources if the website root is `pub`:
+
+```
+php deploy.php
+```
+
 # Dependency
 
 **Mollie_Payment** need the native **Leafiny_Payment** module.
