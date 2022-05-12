@@ -1,27 +1,13 @@
 {% set sale = block.getCustom('sale') %}
 
-{% if sale.getPaymentState == 'paid' %}
-    <h3>{{ 'Thank you for your purchase!'|translate }}</h3>
+<h3>{{ 'Thank you for your purchase!'|translate }}</h3>
 
-    <p>{{ 'Your credit card payment has been successfully registered.'|translate }}</p>
+<p>{{ 'Your credit card payment has been successfully registered.'|translate }}</p>
 
-    <p>{{ 'Your order number is:'|translate }} <strong>{{ sale.getSaleIncrementId }}</strong>.</p>
+<p>{{ 'Your order number is:'|translate }} <strong>{{ sale.getSaleIncrementId }}</strong>.</p>
 
-    {% if sale.getInclTaxTotal %}
-        <p>{{ 'The total amount of your order is'|translate }} <strong>{{ sale.getInclTaxTotal|currency }}</strong>.</p>
-    {% endif %}
-
-    <p>{{ 'We\'ll email you an order confirmation with details.'|translate }}</p>
-{% else %}
-    <h3>{{ 'The payment was not successful'|translate }}</h3>
-
-    <p>
-        {{ 'The transaction ended with the status:'|translate }} <strong>{{ sale.getPaymentState|translate }}</strong>
-    </p>
-    <p>
-        {{ 'Your bank account will not be debited. You can retry a payment by validating your cart again.'|translate }}
-    </p>
-    <p>
-        <a href="{{ page.getUrl('checkout.html') }}" class="pure-button black">{{ 'View my cart'|translate }}</a>
-    </p>
+{% if sale.getInclTaxTotal %}
+    <p>{{ 'The total amount of your order is'|translate }} <strong>{{ sale.getInclTaxTotal|currency }}</strong>.</p>
 {% endif %}
+
+<p>{{ 'We\'ll email you an order confirmation with details.'|translate }}</p>
